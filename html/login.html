@@ -5,14 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="navigation" href="navigation bar.html">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="..\css\style.css">
     <title>login</title>
+    <script>  
+        function validateform(){  
+        var name=document.login.username.value;  
+        var password=document.login.pwd.value;  
+          
+        if (name==null || name==""){  
+          alert("Name can't be blank");  
+          return false;  
+        }else if(password.length<6){  
+          alert("Password must be at least 6 characters long.");  
+          return false;  
+          }  
+        }  
+        </script> 
 </head>
 <body>
     
     <main>
         <h1>Login</h1>
-        <form action="home.html">
+        <form name= 'login' action="home.html"  onsubmit="return validateform()">
             <label for="username">Username:</label><br>
             <input type="text" id="username" name="username"><br>
             <label for="pwd">Password:</label><br>
