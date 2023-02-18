@@ -8,45 +8,42 @@
   <link rel="navigation" href="navigation bar.html" />
   <link rel="stylesheet" href="..\css\style.css" />
   <title>register</title>
+  <script>
+    function validate() {
+      var name = document.register.username.value;
+      var password = document.register.password.value;
+      var cp = document.register.confirmPassword.value;
+      var email = document.register.email.value;
+      var ph = document.register['mobile-number'].value;
+      let pattern = /^[6-9]\d{9}$/;
+      let pat = /^[\w][\w]+[@][\w]+[.][\w]+$/;
+      if (name.length < 6) {
+        alert("User Name must be at least 6 characters long.");
+        return false;
+      } else if (password.length < 8) {
+        alert("Password must be at least 8 characters long.");
+        return false;
+      } else if (password !== cp) {
+        alert("Password doesn't match!");
+        return false;
+      }  else if (ph.length !== 10) {
+        alert("Mobile number must be 10 characters long.");
+        return false;
+      } else if (!ph.match(pattern)) {
+        alert("Mobile number must start with digits 6 to 9.");
+        return false;
+      } else if (!email.match(pat)) {
+        alert("Email doesn't match pattern.");
+        return false;
+      }
+    }
+  </script>
   
 </head>
-<script>
-  function validateform() {
-    var name = document.register.username.value;
-    var password = document.register.password.value;
-    var cp = document.register.confirm-password.value;
-    var email = document.register.email.value;
-    var ph = document.register.mobile-number.value;
-    let pattern = '^[6-9]\d{9}';
-    let pat='^[\w][\w]+[@][\w]+[.][\w]+';
-    if (name.length < 6) {
-      alert("User Name must be at least 6 characters long.");
-      return false;
-    } else if (password.length < 8) {
-      alert("Password must be at least 8 characters long.");
-      return false;
-    } else if (password != cp) {
-      alert("Password doesn't match!");
-      return false;
-    }
-    else if (ph.length != 10) {
-      alert("Mobile number must be 10 characters long.");
-      return false;
-    }
-    else if (ph.match(pattern)){
-      alert("Mobile number must start with digits 6 to 9.");
-      return false;
-    }
-    else if(email.match(pat)){
-      alert("Email doesn't match pattern.");
-      return false;
-    }
-  }
-</script>
 <body>
   <main>
     <h1>Registration page</h1>
-    <form name="register" action="login.html" onsubmit="return validateform()">
+    <form name='register' action="login.html" onsubmit="return validate()">
       <label for="username" style="padding-bottom: 5px">Username:</label>
       <input type="text" id="username" name="username" required style="padding-bottom: 10px; margin-bottom: 20px" />
       <br />
@@ -54,8 +51,7 @@
       <input type="password" id="password" name="password" required style="padding-bottom: 10px; margin-bottom: 20px" />
       <br />
       <label for="confirm-password" style="padding-bottom: 5px">Confirm Password:</label>
-      <input type="password" id="confirm-password" name="confirm-password" required
-        style="padding-bottom: 10px; margin-bottom: 20px" />
+      <input type="password" id="confirm-password" name="confirmPassword" required style="padding-bottom: 10px; margin-bottom: 20px" />
       <br />
       <label for="email" style="padding-bottom: 5px">Email-Id:</label>
       <input type="email" id="email" name="email" required style="padding-bottom: 10px; margin-bottom: 20px" />
