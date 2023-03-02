@@ -6,38 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cse</title>
     <link rel="stylesheet" href="..\css\style.css">
-    <ul id="cart-items">
-    </ul>
     
-    <script>
-      const cart = []; // array to store cart items
-      
-      function addToCart(product) {
-        cart.push(product); // add product to cart
-        renderCart(); // render cart items
-      }
-      
-      function renderCart() {
-        const cartItems = document.getElementById('cart-items');
-        cartItems.innerHTML = ''; // clear previous cart items
-        
-        cart.forEach(item => {
-          const li = document.createElement('li');
-          const span = document.createElement('span');
-          span.textContent = item;
-          li.appendChild(span);
-          cartItems.appendChild(li);
-        });
-      }
-    </script>
 </head>
 <body>
     <div class="bookcard">
 		<img src="..\images\ppsuc.jpg" alt="Image 1">
 		<div class="title">Programming and Problem Solving Through “C” Language</div>
         <button onclick="addToCart('Programming and Problem Solving Through “C” Language')">Add to cart</button>
-        ,<a href="https://books.google.co.in/books?id=NS2dU-MF-tsC&printsec=copyright#v=onepage&q&f=false"><button >Read online</button></a>
-	</div>
+        <a href="https://books.google.co.in/books?id=NS2dU-MF-tsC&printsec=copyright#v=onepage&q&f=false"><button >Read online</button></a>
+        <span class="wishlist" onclick="addToWishlist(this)">
+            <i class="fas fa-heart"></i>
+          </span>
+    </div>
 	
 </body>
 </html>

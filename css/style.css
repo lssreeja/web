@@ -61,3 +61,12 @@ align-items: center;
     margin-right: 10px;
     float: right;
 }
+.fas.fa-heart {
+    color: gray;
+    float: left;
+  }
+  
+  .fas.fa-heart.active {
+    color: red;
+    float: left;
+  }
